@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 if( !isset( $_SESSION['token'] ) || time() - $_SESSION['login_time'] > 1800)
     header('Location: formulario.php');
 include 'functions.php';?>
