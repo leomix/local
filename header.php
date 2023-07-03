@@ -35,13 +35,19 @@
 .top-3em{
   margin-top: -3em;
 }
+div.img{
+    background: url('./assets/img/logopng.png') no-repeat center;
+    background-size: contain;
+    width: 100%;
+    height: 100px;
+}
   </style>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Atención a Clientes</a>
+      <a class="navbar-brand" href="#"><div class="img"></div></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
