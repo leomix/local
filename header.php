@@ -36,10 +36,10 @@
   margin-top: -3em;
 }
 div.img{
-    background: url('./assets/img/logopng.png') no-repeat center;
+    background:#fff url('./assets/img/logopng.png') no-repeat center;
     background-size: contain;
-    width: 100%;
-    height: 100px;
+    width: 124px;
+    height: 30px;
 }
   </style>
 </head>
