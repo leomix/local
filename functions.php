@@ -6,6 +6,10 @@ function curl($link, $post){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
     $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if($httpCode == 404) {
+        $response='';
+    }
     curl_close($ch);
 
     return $response;
@@ -16,7 +20,11 @@ function getCurl($link,$token){
     curl_setopt($ch, CURLOPT_URL, $link); 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
     curl_setopt($ch, CURLOPT_HEADER, 0); 
-    $response = curl_exec($ch); 
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if($httpCode == 404) {
+        $response='';
+    }
     curl_close($ch);
     return json_decode($response); 
 }
@@ -32,6 +40,10 @@ function jwt_request($link,$token, $post) {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $post); // Set the posted fields
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); // This will follow any redirects
     $result = curl_exec($ch); // Execute the cURL statement
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if($httpCode == 404) {
+        $response='';
+    }
     curl_close($ch); // Close the cURL connection
     return json_decode($result); // Return the received data
 
