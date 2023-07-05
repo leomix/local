@@ -50,5 +50,5 @@ function jwt_request($link,$token, $post) {
 }
 function getStatusPago($status){
     $results = ['No Pagado','Cargado a Banco','Pagado'];
-    return $results[$status];
+    return is_numeric($status)?$results[$status]:'';
 }
