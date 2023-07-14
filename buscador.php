@@ -14,7 +14,7 @@ include 'functions.php';?>
             <form action="resultado.php" method="post">
                 <div class="form-group">
                     <label for="search">Coloca el número de Cliente:</label>
-                    <input type="text" name="search" id="search" class="form-control">
+                    <input type="text" name="search" id="search" class="form-control" autocomplete="off">
                 </div>
                 <div class="form-check">
                     <input type="checkbox" name="rfc" id="rfc" class="form-check-input"> 
