@@ -22,6 +22,11 @@ $result = getCurl(BASEURL.'/ws/ac/buscarId/'.$_GET['id'],$_SESSION['token'],[]);
         $vencidos = $result->vencidos;
         ?>
             <h5></h5>
+            <!--<?php if(!@$cliente->hayNegociacion){?>
+                <a href="setNegociacion.php?id=<?=$cliente->id?>" class="btn btn-warning  float-right m-2" onclick="return confirm('¿Deseas iniciar negociación con este cliente?')">Solicitar negociación</a>
+            <?php }else{?>
+                <div class="alert alert-warning" role="alert"> Negociación en proceso </div>
+            <?php }?>-->
             <table class="table table-striped">
                 <thead>
                     <tr>
