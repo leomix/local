@@ -37,7 +37,44 @@ $result = jwt_request(BASEURL.'/ws/ac/buscarINERFC',$_SESSION['token'],$_POST);
                     </tr>
                 </tbody>
             </table>
-            <a href="verDatos.php?id=<?=$result->id?>" class="btn btn-primary float-right" style="width:50%">Ver Datos</a>
+            <?php if(isset($result->asesores)&&!empty($result->asesores)){?>
+                <hr>
+                <h5>Histórico Asesores</h5>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>id Asesor</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Estatus</th>
+                            <th>Fecha de Asignación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                <?php foreach($result->asesores as $index => $a){
+                if($index == 0){?>
+                    <tr>
+                        <td ><?=$a->idAsesorOrigen?></td>
+                        <td ><?=$a->origenNombre?></td>
+                        <td ><?=$a->origenMail?></td>
+                        <td ><?=$a->origenEstatus?></td>
+                        <td >Origen </td>
+                    </tr>
+                <?php }?>
+                    <tr>
+                        <td ><?=$a->idAsesorAsignado?></td>
+                        <td ><?=$a->destinoNombre?></td>
+                        <td ><?=$a->destinoMail?></td>
+                        <td ><?=$a->destinoEstatus?></td>
+                        <td ><?=$a->fechaCambio?></td>
+                    </tr>
+                <?php }?>
+            </tbody>
+        </table>
+            <?php }?>
+            <?php if(!isset($result->asesores)){?>
+                <a href="verDatos.php?id=<?=$result->id?>" class="btn btn-primary float-right" style="width:50%">Ver Datos</a>
+            <?php }?>
         </div>
         <div class="col"></div>
 
