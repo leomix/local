@@ -37,7 +37,7 @@ $result = jwt_request(BASEURL.'/ws/ac/buscarINERFC',$_SESSION['token'],$_POST);
                     </tr>
                 </tbody>
             </table>
-            <?php if(isset($result->asesores)&&!empty($result->asesores)){?>
+            <?php if(isset($result->asesores)){?>
                 <hr>
                 <h5>Histórico Asesores</h5>
                 <table class="table table-striped">
@@ -51,7 +51,9 @@ $result = jwt_request(BASEURL.'/ws/ac/buscarINERFC',$_SESSION['token'],$_POST);
                         </tr>
                     </thead>
                     <tbody>
-                <?php foreach($result->asesores as $index => $a){
+                <?php 
+                if(!empty($result->asesores)){
+                foreach($result->asesores as $index => $a){
                 if($index == 0){?>
                     <tr>
                         <td ><?=$a->idAsesorOrigen?></td>
@@ -67,6 +69,15 @@ $result = jwt_request(BASEURL.'/ws/ac/buscarINERFC',$_SESSION['token'],$_POST);
                         <td ><?=$a->destinoMail?></td>
                         <td ><?=$a->destinoEstatus?></td>
                         <td ><?=$a->fechaCambio?></td>
+                    </tr>
+                <?php }?>
+                <?php }else{?>
+                    <tr>
+                        <td ><?=$result->idAsesor?></td>
+                        <td ><?=$result->nombreAsesor?></td>
+                        <td ><?=$result->emaiAsesor?></td>
+                        <td ><?=$result->estatusAsesor?></td>
+                        <td >Origen</td>
                     </tr>
                 <?php }?>
             </tbody>
