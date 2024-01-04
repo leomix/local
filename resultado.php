@@ -75,7 +75,7 @@ $result = jwt_request(BASEURL.'/ws/ac/buscarINERFC',$_SESSION['token'],$_POST);
                     <tr>
                         <td ><?=$result->idAsesor?></td>
                         <td ><?=$result->nombreAsesor?></td>
-                        <td ><?=$result->emaiAsesor?></td>
+                        <td ><?=$result->emailAsesor?></td>
                         <td ><?=$result->estatusAsesor?></td>
                         <td >Origen</td>
                     </tr>
